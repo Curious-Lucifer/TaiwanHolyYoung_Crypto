@@ -1,0 +1,27 @@
+#!/bin/bash
+
+LABNAME="Taiwan Holy Young Crypto Lab"
+
+if [[ $# == 0 ]]; then
+    echo "========= $LABNAME ========="
+    echo "Usage:";
+    echo "Build challenge:     ./snippet build";
+    echo "Rebuild challenge:   ./snippet rebuild";
+    echo "Start challenge:     ./snippet start";
+    echo "Stop challenge:      ./snippet stop";
+    exit 0
+fi
+
+DOCKERNAME="taiwan_holy_young_crypto_lab"
+
+if [[ $1 == "build" ]]; then
+    docker build -t $DOCKERNAME .;
+elif [[ $1 == "rebuild" ]]; then
+    docker rmi $DOCKERNAME;
+    docker build -t $DOCKERNAME .;
+elif [[ $1 == "start" ]]; then
+    docker run -p 10000-10009:10000-10009 --name $DOCKERNAME -d $DOCKERNAME;
+elif [[ $1 == "stop" ]]; then
+    docker stop $DOCKERNAME;
+    docker rm $DOCKERNAME;
+fi
