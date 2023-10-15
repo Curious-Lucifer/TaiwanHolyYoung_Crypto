@@ -12,5 +12,5 @@ Author : Curious
 ---
 ## Flag
 ```
-FLAG{><>}
+FLAG{><}
 ```

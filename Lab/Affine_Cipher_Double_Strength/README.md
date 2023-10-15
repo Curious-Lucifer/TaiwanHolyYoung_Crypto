@@ -3,10 +3,6 @@
 ## Challenge
 ```
 Flag : `FLAG{{{hashlib.md5(plain.encode()).hexdigest()}}}`
-
-<br>
-
-Author : Curious
 ```
 
 ---
